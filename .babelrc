@@ -1,0 +1,30 @@
+{
+    //预设信息
+    "presets": [
+        //代表现在使用默认配置好的插件集合包
+        [
+            "@babel/preset-env",{
+                //使用了什么模块就加载什么包，这样打包体积可以小一些
+                       "useBuildIns":"usage",
+                       //代表corejs使用的版本是3
+                       "corejs":"3",
+                       "targets":{
+                        "browsers":[
+                            //最新的两个大版本
+                            //"last 2 version",
+                            "ie<=8",
+                            //全球使用人数超过1%的浏览器
+                            ">1%",
+                            //排除掉dead
+                            "not dead"
+                            //这里最终的过滤结果是通过last 2 version
+                            //筛选的浏览器中，全球适用于低于1%，
+                            //并且官方声明不在维护或者事实上已经有两年没有更新
+                            //过版本的浏览器
+                        ]
+                       }
+            }
+        ]
+    ],
+    "plugins":["@babel/plugin-transform-runtime"]
+}
